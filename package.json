@@ -1,0 +1,28 @@
+{
+  "name": "the-group-chat-war-statistics",
+  "version": "1.0.0",
+  "description": "Statictics for group chats a part of The Group Chat War",
+  "main": "./src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "tsc && node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdwalters/The-Group-Chat-War-Statistics.git"
+  },
+  "author": "M.D. Walters",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mdwalters/The-Group-Chat-War-Statistics/issues"
+  },
+  "homepage": "https://github.com/mdwalters/The-Group-Chat-War-Statistics#readme",
+  "devDependencies": {
+    "@types/node": "^18.14.2",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "meowerbot": "^1.4.4"
+  }
+}
