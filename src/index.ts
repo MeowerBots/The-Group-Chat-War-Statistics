@@ -2,6 +2,7 @@
 import Bot from "meowerbot";
 import * as dotenv from "dotenv";
 import { exit } from "node:process";
+import * as fs from "node:fs";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ bot.onMessage((data) => {
     let data_json: Object = JSON.parse(data.toString());
     let members: Object[] = [];
     let quote: string = "";
+
     if (data_json.val.mode == "chats") {
         for(let i in data_json.val.payload.all_chats) {
             if (chats.includes(data_json.val.payload.all_chats[i]._id)) {
@@ -38,17 +40,18 @@ bot.onMessage((data) => {
         }
         
         bot.send(JSON.stringify({
-            cmd: "direct",
-		    val: {
-                cmd: "update_config",
-                val: {
-				    quote: quote
+            "cmd": "direct",
+		    "val": {
+                "cmd": "update_config",
+                "val": {
+                    "quote": quote
 			    }
-            },
+            }
         }));
+
+        fs.appendFile(`### ${new Date()}`, () => {});
+
         exit(0);
-    } else {
-        console.log(data_json);
     }
 });
 
