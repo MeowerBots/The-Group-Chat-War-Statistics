@@ -2,7 +2,7 @@
 import Bot from "meowerbot";
 import * as dotenv from "dotenv";
 import { exit } from "node:process";
-import * as fs from "node:fs";
+import * as fs from "fs";
 
 dotenv.config();
 
@@ -23,6 +23,8 @@ bot.onMessage((data) => {
     let quote: string = "";
 
     if (data_json.val.mode == "chats") {
+        fs.appendFile("README.md", `### ${new Date()}`, () => { return; });
+
         for(let i in data_json.val.payload.all_chats) {
             if (chats.includes(data_json.val.payload.all_chats[i]._id)) {
                 members[i] = JSON.parse(`{ "nickname": "${data_json.val.payload.all_chats[i].nickname}", "count": ${data_json.val.payload.all_chats[i].members.length} }`);
@@ -39,6 +41,8 @@ bot.onMessage((data) => {
             }
         }
         
+        fs.appendFile("README.md", quote, () => { return; });
+
         bot.send(JSON.stringify({
             "cmd": "direct",
 		    "val": {
@@ -48,8 +52,6 @@ bot.onMessage((data) => {
 			    }
             }
         }));
-
-        fs.appendFile(`### ${new Date()}`, () => {});
 
         exit(0);
     }
