@@ -16,6 +16,10 @@ jobs:
         run: npm install
 
       - name: Run Group Chat Statistics script
+        env:
+          TGCWS_USERNAME: ${{ secrets.USERNAME }}
+          TGCWS_PASSWORD: ${{ secrets.PASSWORD }}
+
         run: npm run start
 
       - name: Publish Statistics
