@@ -5,6 +5,6 @@ Statictics for group chats a part of The Group Chat War. The Group Chat Wars wil
 
 **#2** Shmidts
 
-**#3**: Meowchat
+**#3** Meowchat
 
-**#4**: Meower Sings
+**#4** Meower Sings
